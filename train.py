@@ -40,7 +40,7 @@ default_cfg = {
     "dec_init_norm": 0.08,
     "hook_point": "blocks.13.hook_resid_pre", # figure out which hookpoint to add crosscoder
     "wandb_project": "Qwen-crosscoders",
-    "wandb_entity": "Qwen2.5-0.5B-Qwen2.5-0.5B-it-crosscoder-13resid_pre",
+    "wandb_entity": "andris-willow-",
 }
 cfg = arg_parse_update_cfg(default_cfg)
 

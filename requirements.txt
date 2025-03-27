@@ -1,0 +1,16 @@
+torch
+einops
+numpy
+pandas
+plotly
+tqdm
+datasets
+transformer-lens
+jaxtyping
+wandb
+ipython
+jupyterlab
+buffer
+huggingface_hub
+typing
+
