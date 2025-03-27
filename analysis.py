@@ -15,7 +15,7 @@ relative_norms.shape
 
 fig = px.histogram(
     relative_norms.detach().cpu().numpy(), 
-    title="Gemma 2 2B Base vs IT Model Diff",
+    title="Qwen2.5-0.5B Base vs IT Model Diff",
     labels={"value": "Relative decoder norm strength"},
     nbins=200,
 )

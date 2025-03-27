@@ -28,8 +28,8 @@ default_cfg = {
     "beta1": 0.9, # Default
     "beta2": 0.999, # defualt
     "d_in": base_model.cfg.d_model,
-    "dict_size": 2**14,
-    "seq_len": 512, # using 512, maybe use 1024 in the future
+    "dict_size": base_model.cfg.d_model * 16, # 896 * 16 = 14,336
+    "seq_len": 1024,
     "enc_dtype": "fp32",
     "model_name": "Qwen/Qwen2.5-0.5B",
     "site": "resid_pre",
@@ -38,12 +38,13 @@ default_cfg = {
     "log_every": 100,
     "save_every": 30000,
     "dec_init_norm": 0.08,
-    "hook_point": "blocks.14.hook_resid_pre", # figure out which hookpoint to add crosscoder
+    "hook_point": "blocks.13.hook_resid_pre", # figure out which hookpoint to add crosscoder
     "wandb_project": "Qwen-crosscoders",
-    "wandb_entity": "Qwen2.5-0.5B-Qwen2.5-0.5B-it-crosscoder",
+    "wandb_entity": "Qwen2.5-0.5B-Qwen2.5-0.5B-it-crosscoder-13resid_pre",
 }
 cfg = arg_parse_update_cfg(default_cfg)
 
 trainer = Trainer(cfg, base_model, chat_model, all_tokens)
 trainer.train()
+
 # %%

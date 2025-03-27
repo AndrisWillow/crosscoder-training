@@ -22,6 +22,7 @@ class LossOutput(NamedTuple):
     explained_variance_B: torch.Tensor
 
 class CrossCoder(nn.Module):
+    # TODO 
     def __init__(self, cfg):
         super().__init__()
         self.cfg = cfg
@@ -94,6 +95,7 @@ class CrossCoder(nn.Module):
         return self.decode(acts)
 
     def get_losses(self, x):
+        # TODO 
         # x: [batch, n_models, d_model]
         x = x.to(self.dtype)
         acts = self.encode(x)
@@ -154,8 +156,8 @@ class CrossCoder(nn.Module):
     @classmethod
     def load_from_hf(
         cls,
-        repo_id: str = "ckkissane/crosscoder-gemma-2-2b-model-diff",
-        path: str = "blocks.14.hook_resid_pre",
+        repo_id: str = "AndrisWillow/Qwen2.5-0.5b-model-diff", 
+        path: str = "blocks.13.hook_resid_pre", # TODO
         device: Optional[Union[str, torch.device]] = None
     ) -> "CrossCoder":
         """
